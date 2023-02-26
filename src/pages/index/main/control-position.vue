@@ -64,10 +64,7 @@ function mousedown($event: MouseEvent) {
     lastX = event.screenX;
     lastY = event.screenY;
 
-    const dx = subX * window.devicePixelRatio;
-    const dy = subY * window.devicePixelRatio;
-
-    ipcRenderer.send('changePosition', Math.floor(dx), Math.floor(dy));
+    ipcRenderer.send('changePosition',subX, subY);
   };
 
   document.addEventListener('mousemove', mouseMoveCallback);

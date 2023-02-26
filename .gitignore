@@ -80,3 +80,4 @@ dist-webpage
 *.swp
 
 package-lock.json
+tsconfig.node.tsbuildinfo

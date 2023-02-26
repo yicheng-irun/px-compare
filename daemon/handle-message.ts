@@ -65,7 +65,6 @@ export function handleMessage(param: {
 		const [x, y] = param.mainWindow.getPosition();
 		param.mainWindow.setPosition(x + subX, y + subY);
 		param.mainWindow.setSize(mainWindowSize.width, mainWindowSize.height);
-		console.log(param.mainWindow.getSize(), 222, mainWindowSize)
 
 		const [cX, cY] = param.compareWindow.getPosition();
 

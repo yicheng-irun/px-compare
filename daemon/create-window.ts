@@ -46,7 +46,7 @@ function createMainWindow(app: App): BrowserWindow {
 	const win = new BrowserWindow({
 		width: mainWindowSize.width,
 		height: mainWindowSize.height,
-		resizable: false,
+		// resizable: false,
 		webPreferences: {
 			nodeIntegration: true,
 			contextIsolation: false,
