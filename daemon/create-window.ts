@@ -60,9 +60,9 @@ function createMainWindow(app: App): BrowserWindow {
 		app.quit();
 	});
 
-	win.webContents.openDevTools({
-		mode: 'undocked'
-	});
+	// win.webContents.openDevTools({
+	// 	mode: 'undocked'
+	// });
 
 	return win;
 }
