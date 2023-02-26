@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "dev:daemon": "tsc -p ./tsconfig.node.json --watch",
     "build:daemon": "tsc -p ./tsconfig.node.json",
-    "build": "npm run generate:webpage && npm run build:daemon",
+    "build": "npm run build:webpage && npm run build:daemon",
     "make": "npx electron-packager . px-compare --out=out --ignore=/web-module --ignore=/daemon --ignore=/scripts --ignore=node_modules --ignore=/src --ignore=.nuxt --ignore=.vscode --ignore=.eslintignore --ignore=.eslintrc.js --overwrite --prune=true",
     "make:darwin": "npx electron-packager . px-compare --platform=darwin --arch=x64 --out=out --ignore=/web-module --ignore=/src --ignore=/daemon --ignore=/scripts --ignore=node_modules --ignore=.nuxt --ignore=.vscode --ignore=.eslintignore --ignore=.eslintrc.js --overwrite --prune=true"
   },
