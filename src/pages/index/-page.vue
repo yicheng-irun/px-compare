@@ -1,14 +1,14 @@
 <template>
   <div class="main-page">
     <main-panel />
-    <div>asfadsf</div>
   </div>
 </template>
 <script lang="ts" setup>
 import {computed, onMounted, watch} from 'vue';
-import MainPanel from '../components/main/main-panel.vue';
-import {useMainStore} from '../store/main';
-import {getIpcRenderer} from '../utils/get-ipc-renderer';
+import MainPanel from './main/main-panel.vue';
+import {getIpcRenderer} from '../../utils/get-ipc-renderer';
+import { useMainStore } from './store';
+import { ImageItem } from './main/main-page-types';
 
 const ipcRenderer = getIpcRenderer();
 const mainStore = useMainStore();
@@ -25,9 +25,14 @@ watch([() => mainStore.$state.config.opacity], ([v]) => {
 	ipcRenderer.send('changeOpacity', String(v));
 });
 
+
+
 </script>
 
 <style lang="scss">
+body {
+  margin: 0;
+}
 .main-page {
   display: block;
   font-size: 14px;

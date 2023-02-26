@@ -16,8 +16,8 @@
 </template>
 <script lang="ts" setup>
 import {computed, onMounted, reactive, ref} from 'vue';
-import {ImageItem} from '../components/main/main-page-types';
-import {getIpcRenderer} from '../utils/get-ipc-renderer';
+import {getIpcRenderer} from '../../utils/get-ipc-renderer';
+import { ImageItem } from '../index/main/main-page-types';
 
 const ipcRenderer = getIpcRenderer();
 

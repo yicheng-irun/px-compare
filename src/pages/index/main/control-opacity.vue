@@ -17,7 +17,7 @@
 
 <script lang="ts" setup>
 import {computed} from 'vue';
-import {useMainStore} from '../../store/main';
+import { useMainStore } from '../store';
 const mainStore = useMainStore();
 
 const config = computed(() => mainStore.$state.config);

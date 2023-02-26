@@ -70,18 +70,8 @@ typings/
 
 # Nuxt generate
 dist
+dist-webpage
 
-# vuepress build output
-.vuepress/dist
-
-# Serverless directories
-.serverless
-
-# IDE / Editor
-.idea
-
-# Service worker
-sw.*
 
 # macOS
 .DS_Store
@@ -90,5 +80,3 @@ sw.*
 *.swp
 
 package-lock.json
-
-/out

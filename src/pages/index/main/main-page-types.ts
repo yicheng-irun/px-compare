@@ -8,6 +8,7 @@ export interface ImageItem {
    * 本地文件转成src后的路径
    */
   srcPath: string;
+
   size: number;
   type: string;
 }

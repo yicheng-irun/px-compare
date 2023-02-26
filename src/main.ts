@@ -11,11 +11,11 @@ app.use(pinia);
 const routes: RouteRecordRaw[] = [
 	{
 		path: '/',
-		component: async () => import('./pages/page-index.vue'),
+		component: async () => import('./pages/index/-page.vue'),
 	},
 	{
 		path: '/compare',
-		component: async () => import('./pages/page-compare.vue'),
+		component: async () => import('./pages/compare/-page.vue'),
 	},
 ];
 

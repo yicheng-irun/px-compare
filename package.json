@@ -2,23 +2,17 @@
   "name": "px-compare",
   "version": "1.0.0",
   "private": true,
-  "type": "module",
   "scripts": {
-    "dev": "vite",
+    "start": "electron .",
+    "dev:webpage": "vite",
     "build:webpage": "vue-tsc && vite build",
     "build:webpage:watch": "vite build --watch",
     "preview": "vite preview",
-    "dev:daemon": "tsc -p ./daemon/ --watch",
-    "start": "electron .",
-    "build:webpage2": "nuxt generate -c ./web-module/nuxt.config.js && node scripts/static-file-process.js",
-    "build:daemon": "tsc -p ./daemon/",
+    "dev:daemon": "tsc -p ./tsconfig.node.json --watch",
+    "build:daemon": "tsc -p ./tsconfig.node.json",
     "build": "npm run generate:webpage && npm run build:daemon",
-    "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "lint:style": "stylelint **/*.{vue,css} --ignore-path .gitignore",
-    "lint": "npm run lint:js && npm run lint:style",
-    "test": "jest",
-    "make": "npx electron-packager . px-compare --out=out --ignore=/web-module --ignore=/daemon --ignore=/scripts --ignore=node_modules --ignore=.nuxt --ignore=.vscode --ignore=.eslintignore --ignore=.eslintrc.js --overwrite --prune=true",
-    "make:darwin": "npx electron-packager . px-compare --platform=darwin --arch=x64 --out=out --ignore=/web-module --ignore=/daemon --ignore=/scripts --ignore=node_modules --ignore=.nuxt --ignore=.vscode --ignore=.eslintignore --ignore=.eslintrc.js --overwrite --prune=true"
+    "make": "npx electron-packager . px-compare --out=out --ignore=/web-module --ignore=/daemon --ignore=/scripts --ignore=node_modules --ignore=/src --ignore=.nuxt --ignore=.vscode --ignore=.eslintignore --ignore=.eslintrc.js --overwrite --prune=true",
+    "make:darwin": "npx electron-packager . px-compare --platform=darwin --arch=x64 --out=out --ignore=/web-module --ignore=/src --ignore=/daemon --ignore=/scripts --ignore=node_modules --ignore=.nuxt --ignore=.vscode --ignore=.eslintignore --ignore=.eslintrc.js --overwrite --prune=true"
   },
   "main": "./dist/main.js",
   "lint-staged": {
@@ -31,6 +25,7 @@
     }
   },
   "devDependencies": {
+    "@types/http-cache-semantics": "^4.0.1",
     "@typescript-eslint/eslint-plugin": "^5.53.0",
     "@typescript-eslint/parser": "^5.53.0",
     "@vitejs/plugin-vue": "^4.0.0",
@@ -40,6 +35,8 @@
     "eslint-config-xo": "^0.43.1",
     "eslint-config-xo-typescript": "^0.56.0",
     "eslint-plugin-vue": "^9.9.0",
+    "http-cache-semantics": "^4.1.1",
+    "minimatch": "^7.1.4",
     "pinia": "^2.0.32",
     "sass": "^1.58.3",
     "typescript": "^4.9.5",

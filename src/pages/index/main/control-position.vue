@@ -17,8 +17,8 @@
 
 <script lang="ts" setup>
 import {reactive, onMounted, computed} from 'vue';
-import { ImagePropInfo, useMainStore } from '../../store/main';
-import { getIpcRenderer } from '../../utils/get-ipc-renderer';
+import { getIpcRenderer } from '../../../utils/get-ipc-renderer';
+import { useMainStore } from '../store';
 
 const ipcRenderer = getIpcRenderer();
 
@@ -63,7 +63,11 @@ function mousedown($event: MouseEvent) {
     const subY = event.screenY - lastY;
     lastX = event.screenX;
     lastY = event.screenY;
-    ipcRenderer.send('changePosition', subX, subY);
+
+    const dx = subX * window.devicePixelRatio;
+    const dy = subY * window.devicePixelRatio;
+
+    ipcRenderer.send('changePosition', Math.floor(dx), Math.floor(dy));
   };
 
   document.addEventListener('mousemove', mouseMoveCallback);
@@ -89,8 +93,10 @@ function mousedown($event: MouseEvent) {
     padding: 10px;
     border-radius: 5px;
     height: 40px;
-    background: #f2f2f2;
+    background: #0001;
     text-align: center;
+    box-shadow: 0 0 5px #0001;
+    cursor: grab;
     &:hover {
       background: #eaeaea;
     }

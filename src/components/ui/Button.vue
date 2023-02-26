@@ -1,11 +1,6 @@
 <template>
   <button
     class="button"
-    v-on="{
-      click: e => $emit('click', e),
-      touchstart: e => $emit('touchstart', e),
-      touchend: e => $emit('touchend', e)
-    }"
   >
     <slot />
   </button>
@@ -18,10 +13,10 @@ type ButtonType = '' | 'default' | 'primary' | 'disable';
 
 const props = defineProps({
   type: {
-      type: String as PropType<ButtonType>,
-      default: ''
-    }
-})
+    type: String as PropType<ButtonType>,
+    default: ''
+  }
+});
 
 </script>
 <style lang="scss">
@@ -30,7 +25,6 @@ button.button {
   background: #0001;
   padding: 0.5em 0.7em;
   border: none;
-  line-height: 1.2;
   color: #111;
   border-radius: 0.2em;
   cursor: pointer;

@@ -14,10 +14,10 @@
       </div>
     </div>
     <div class="size-edit-wrapper">
+      <div class="row-label">
+        设置图片大小为：
+      </div>
       <div class="row">
-        <div class="left">
-          设置大小为：
-        </div>
         <div class="center">
           <div class="input-item">
             <label for="width">宽</label>
@@ -29,7 +29,7 @@
               class="size-input"
               @keydown.enter="submitSize"
               @input="widthInput"
-              v-model="width"
+              v-model="data.width"
             >
             <span>px</span>
           </div>
@@ -43,7 +43,7 @@
               class="size-input"
               @keydown.enter="submitSize"
               @input="heightInput"
-              v-model="height"
+              v-model="data.height"
             >
             <span>px</span>
           </div>
@@ -74,9 +74,9 @@
 
 <script lang="ts" setup>
 import {computed, watch, reactive} from 'vue';
-import {useMainStore} from '../../store/main';
-import {getIpcRenderer} from '../../utils/get-ipc-renderer';
-import Button from '../ui/Button.vue';
+import {getIpcRenderer} from '../../../utils/get-ipc-renderer';
+import Button from '../../../components/ui/Button.vue';
+import { useMainStore } from '../store';
 
 const store = useMainStore();
 const ipcRenderer = getIpcRenderer();
@@ -120,10 +120,11 @@ function submitSize() {
 <style lang="scss">
 .control-size {
   font-size: 14px;
-  margin: 0 10px;
+  margin: 0 10px 0;
+  padding: 10px 0 0;
   > .info {
     font-size: 12px;
-    color: #0006;
+    color: #000a;
     word-break: break-all;
     margin: 5px 0 3px;
     text-align: center;
@@ -132,13 +133,17 @@ function submitSize() {
   > .size-edit-wrapper {
     text-align: center;
     font-size: 12px;
+    >.row-label {
+      text-align: left;
+    }
     > .row {
       margin: 5px 0;
       display: flex;
-      justify-content: space-between;
+      justify-content: space-around;
       align-items: center;
       > .left {
         color: #aaa;
+        flex: 1;
       }
       > .center {
         > .input-item {
@@ -152,6 +157,7 @@ function submitSize() {
             width: 60px;
             border-radius: 4px;
             border: 1px solid #0005;
+            padding: 5px 5px;
           }
           > span {
             font-size: 12px;
@@ -166,7 +172,7 @@ function submitSize() {
       white-space: nowrap;
       margin: 0 5px;
       padding: 0.2em 0.6em;
-      font-size: 12px;
+      font-size: 14px;
     }
   }
 }
