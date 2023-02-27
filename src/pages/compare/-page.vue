@@ -17,7 +17,7 @@
 <script lang="ts" setup>
 import {computed, onMounted, reactive, ref} from 'vue';
 import {getIpcRenderer} from '../../utils/get-ipc-renderer';
-import { ImageItem } from '../index/main/main-page-types';
+import {ImageItem} from '../index/main/main-page-types';
 
 const ipcRenderer = getIpcRenderer();
 
@@ -69,8 +69,8 @@ body {
   > .image-wrapper {
     > img {
       vertical-align: top;
-      max-width: 100%;
-      max-height: 100%;
+      width: 100%;
+      height: 100%;
     }
   }
 }

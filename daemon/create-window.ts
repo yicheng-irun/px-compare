@@ -1,10 +1,10 @@
 import {type App, BrowserWindow} from 'electron';
 import {handleMessage} from './handle-message';
 import {pathToFileURL} from 'url';
-import { resolve } from 'path';
-import { mainWindowSize } from './config';
+import {resolve} from 'path';
+import {mainWindowSize} from './config';
 
-const webpagePath = resolve(__dirname, '../dist-webpage/index.html')
+const webpagePath = resolve(__dirname, '../dist-webpage/index.html');
 
 const mainWindowUrl = pathToFileURL(webpagePath).toString();
 const compareWindowUrl = pathToFileURL(webpagePath).toString() + '#/compare';
@@ -46,7 +46,7 @@ function createMainWindow(app: App): BrowserWindow {
 	const win = new BrowserWindow({
 		width: mainWindowSize.width,
 		height: mainWindowSize.height,
-		// resizable: false,
+		// Resizable: false,
 		webPreferences: {
 			nodeIntegration: true,
 			contextIsolation: false,
@@ -60,7 +60,7 @@ function createMainWindow(app: App): BrowserWindow {
 		app.quit();
 	});
 
-	// win.webContents.openDevTools({
+	// Win.webContents.openDevTools({
 	// 	mode: 'undocked'
 	// });
 
