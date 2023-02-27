@@ -54,6 +54,20 @@
           </Button>
         </div>
       </div>
+      <div class="btns">
+        <Button title="200%倍图" @click="() => setScale(0.5)">
+          x 0.5
+        </Button>
+        <Button title="150%倍图" @click="() => setScale(2 / 3)">
+          x 2/3
+        </Button>
+        <Button title="125%倍图" @click="() => setScale(4 / 5)">
+          x 4/5
+        </Button>
+        <Button @click="() => setScale(1)">x 1</Button>
+        <Button @click="() => setScale(1.5)">x 1.5</Button>
+        <Button @click="() => setScale(2)">x 2</Button>
+      </div>
 
       <!-- <div>
         <span>输入框</span>
@@ -76,7 +90,7 @@
 import {computed, watch, reactive} from 'vue';
 import {getIpcRenderer} from '../../../utils/get-ipc-renderer';
 import Button from '../../../components/ui/Button.vue';
-import { useMainStore } from '../store';
+import {useMainStore} from '../store';
 
 const store = useMainStore();
 const ipcRenderer = getIpcRenderer();
@@ -114,6 +128,14 @@ function heightInput() {
 
 function submitSize() {
 	ipcRenderer.send('changeImageSize', data.width, data.height);
+}
+
+function setScale(s: number) {
+  if (imagePropInfo?.value?.imageNaturalSize) {
+    data.width = Math.ceil(imagePropInfo.value.imageNaturalSize.width * s)
+    data.height = Math.ceil(imagePropInfo.value.imageNaturalSize.height * s)
+    submitSize();
+  }
 }
 </script>
 
@@ -173,6 +195,13 @@ function submitSize() {
       margin: 0 5px;
       padding: 0.2em 0.6em;
       font-size: 14px;
+    }
+    .btns {
+      text-align: left;
+      >.button {
+        font-size: 12px;
+        margin: 0 4px 4px;
+      }
     }
   }
 }
