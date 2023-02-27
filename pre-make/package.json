@@ -1,0 +1,13 @@
+{
+  "name": "px-compare",
+  "version": "0.0.1",
+  "description": "像素对比工具",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+  }
+}
