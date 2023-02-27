@@ -11,7 +11,8 @@
     "build:daemon": "tsc -p ./tsconfig.node.json --outDir pre-make/dist",
     "build": "npm run build:webpage && npm run build:daemon",
     "make": "npx electron-packager ./pre-make px-compare --out=out --ignore=tsconfig.node.tsbuildinfo --overwrite --prune=true",
-    "make:darwin": "npx electron-packager ./pre-make px-compare --platform=darwin --arch=x64 --out=out --ignore=tsconfig.node.tsbuildinfo --overwrite --prune=true"
+    "make:darwin": "npx electron-packager ./pre-make px-compare --platform=darwin --arch=x64 --out=out --ignore=tsconfig.node.tsbuildinfo --overwrite --prune=true",
+    "buildAndMake": "npm run build && npm run make"
   },
   "main": "./dist/main.js",
   "lint-staged": {
