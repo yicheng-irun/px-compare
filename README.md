@@ -1,20 +1,13 @@
 # px-compare
 
+助你像素级还原设计稿
+
 ## Build Setup
 
 ```bash
 # install dependencies
 $ npm install
 
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
+# 生成对应的平台包
+$ npm run buildAndMake
 ```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
